@@ -20,7 +20,7 @@ Then run from your termial:
 ```bash
 mybatis ~/config.json
 ```
-Lastly , open [http://localhost:8080/](http://localhost:8080/)
+Lastly , open [me](http://localhost:8888/)
 
 ## Generate text such as :
 
