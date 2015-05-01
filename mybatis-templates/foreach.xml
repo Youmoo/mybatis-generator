@@ -1,0 +1,6 @@
+<if test="billNoList != null and billNoList.size() > 0" >
+    and b.bill_no in
+    <foreach collection="billNoList" item="billNo" open="(" separator="," close=")">
+        #{billNo}
+    </foreach>
+</if>

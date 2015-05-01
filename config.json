@@ -1,0 +1,7 @@
+{
+  "host": "localhost",
+  "database": "dbtest1",
+  "user": "test",
+  "password": "test",
+  "connectionLimit": 10
+}

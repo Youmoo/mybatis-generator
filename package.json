@@ -1,0 +1,39 @@
+{
+  "name": "mybatis-generator",
+  "version": "0.0.1",
+  "description": "MyBatis code generator",
+  "repository": "https://github.com/Youmoo",
+  "main": "js/app.js",
+  "dependencies": {
+    "flux": "^2.0.1",
+    "keymirror": "~0.1.0",
+    "object-assign": "^1.0.0",
+    "react": "^0.12.0",
+    "restify": "3.0.2",
+    "mysql": "2.6.2"
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "envify": "^3.0.0",
+    "jest-cli": "~0.1.17",
+    "reactify": "^0.15.2",
+    "uglify-js": "~2.4.15",
+    "watchify": "^2.1.1"
+  },
+  "bin": {
+    "mybatis": "server.js"
+  },
+  "scripts": {
+    "start": "watchify -o views/js/bundle.js -v -d views/js/app.js"
+  },
+  "author": "Youmoo",
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "jest": {
+    "rootDir": "./js"
+  }
+}
