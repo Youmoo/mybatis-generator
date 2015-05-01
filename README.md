@@ -37,4 +37,4 @@ Lastly , open [me](http://localhost:8888/)
 1. react+flux
 2. nodejs
 3. mysql
-4. browerify
+4. browserify
