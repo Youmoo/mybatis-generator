@@ -6,5 +6,6 @@ var keyMirror = require('keymirror');
 module.exports = keyMirror({
     TABLES_LOAD: null,//加载tables
     TABLE_CLICK: null,//点击一个表名
-    TAB_CLICK: null//点击一个tab
+    TAB_CLICK: null,//点击一个tab
+    CHECK_COLUMN: null//点击一个列名
 });

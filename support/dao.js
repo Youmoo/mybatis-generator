@@ -1,18 +1,18 @@
 'use strict';
 
+var camelCase = require('./camelCase');
+var capitalize = require('./capitalize');
+
 /**
  * 构造实体类
  */
 module.exports = function dao(tableDesc) {
-    var daoName = tableDesc.table.replace(/_\w/g, function (match) {
-        return match[1].toUpperCase();
-    }).replace(/^\w/, function (match) {
-        return match.toUpperCase();
-    });
+    var daoName = capitalize(camelCase(tableDesc.table)) + 'Mapper';
+
 
     var results = [
         'public interface ' + daoName + ' {',
-        '\t'+daoName+' select();',
+        '\t' + daoName + ' select();',
         '\tInteger selectCount();',
         '\tvoid insert();',
         '\tvoid insertSelective();',

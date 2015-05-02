@@ -21,7 +21,7 @@ server.pool = require('./db')(require(config));
 //server.provider = 'file';//从哪里取数据
 server.provider = 'mysql';//从哪里取数据
 
-server.get(/\/.*\.(html|css|js)/, restify.serveStatic({
+server.get(/\/.*\.(html|css|js|woff|woff2|ttf)/, restify.serveStatic({
     directory: __dirname + '/views',
     default: 'index.html'
 }));

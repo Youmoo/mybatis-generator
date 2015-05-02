@@ -11,6 +11,14 @@ var MoreTabs = [
     {
         tabName: 'dao',
         loadContent: require('../../../support/dao')
+    },
+    {
+        tabName: 'baseAliases',
+        loadContent: require('../../../support/baseAliases')
+    },
+    {
+        tabName: 'converter',
+        loadContent: require('../../../support/converter')
     }
 ];
 

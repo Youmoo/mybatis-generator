@@ -12,9 +12,9 @@ module.exports = function insert(tableDesc) {
         '<insert id="insert" parameterType="your.entity.Type">\ninsert into ',
         tableDesc.table,
         '\n(',
-        results.fields.join(','),
+        results.fields.join(',\n'),
         ') \nvalues\n(',
-        results.javaFields.join(','),
+        results.javaFields.join(',\n'),
         ')',
         '\n</insert>'].join('');
 

@@ -21,7 +21,7 @@ var Panel = React.createClass({
             <Tabs tabIndex={this.state.tabIndex}/>
 
             <div className="ui bottom attached segment">
-                <pre>{this.state.content}</pre>
+                {this.state.content}
             </div>
         </div>
     },
@@ -36,15 +36,48 @@ var Panel = React.createClass({
 
 function getState() {
     var data = AppStore.getData();
-    var content = data.content;
-    if (typeof content !== 'string') {
-        content = JSON.stringify(content, null, 2)
+    var content = data.content || {rows: []};
+    if (typeof content === 'string') {
+        content = <pre>{content}</pre>
+    } else {
+        content = <div>{buildColumns(content)}</div>
     }
     return {
         table: data.table,
         content: content,
         tabIndex: data.tabIndex || 0
     }
+}
+
+function buildColumns(data) {
+    var rows = data.rows.map(function (row, idx) {
+        return <tr key={idx}>
+            <td><input className="ui input" type="checkbox" checked={row.checked}
+                       onChange={checkColumn.bind(null,idx)}/></td>
+            <td>{row.field}</td>
+            <td>{row.type}</td>
+            <td>{row.javaField}</td>
+            <td>{row.javaType}</td>
+        </tr>
+    });
+    return <table className="ui table">
+        <thead>
+        <tr>
+            <th>操作</th>
+            <th>field</th>
+            <th>type</th>
+            <th>javaField</th>
+            <th>javaType</th>
+        </tr>
+        </thead>
+        <tbody>
+        {rows}
+        </tbody>
+    </table>
+}
+
+function checkColumn(idx) {
+    AppActions.checkColumn(idx);
 }
 
 module.exports = Panel;

@@ -11,7 +11,7 @@ var Tabs = React.createClass({
     render: function () {
         return <div className="ui top attached tabular menu">
             {this._buildTabs(0, TabsConfig)}
-            <div className="ui dropdown active visible item">
+            <div className="ui right dropdown active visible item">
                 More
                 <i className="dropdown icon"></i>
 

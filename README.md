@@ -35,6 +35,6 @@ Lastly , open [me](http://localhost:8888/)
 
 ## Libs that are used:
 1. react+flux
-2. nodejs
+2. nodejs+restify
 3. mysql
 4. browserify

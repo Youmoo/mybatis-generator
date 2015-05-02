@@ -2,19 +2,20 @@
 
 var camelCase = require('./camelCase');
 var capitalize = require('./capitalize');
-
+/**
+ * 构造实体类
+ */
 module.exports = function entity(tableDesc) {
-    var entityName = capitalize(camelCase(tableDesc.table));
 
     var results = tableDesc.rows.map(function (row) {
-        return ['\tprivate ', row.javaType, ' ', row.javaField, ';'].join('')
+        var field = capitalize(row.javaField);
+        return ['\tresult.set', field, '(bean.get', field, ');'].join('')
     }).join('\n');
 
     return new Promise(function (res) {
         res([
-            'import lombok.Data;',
-            '@Data',
-            'public class ' + entityName + ' {',
+            'public A convert(Bean bean){',
+            '\tA result=new A();',
             results,
             '}'
         ].join('\n'));

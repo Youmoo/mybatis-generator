@@ -24,6 +24,12 @@ var AppActions = {
             tabIndex: idx,
             tabName: tabName
         });
+    },
+    checkColumn: function (idx) {
+        AppDispatcher.dispatch({
+            actionType: AppConstants.CHECK_COLUMN,
+            idx: idx
+        })
     }
 };
 module.exports = AppActions;
