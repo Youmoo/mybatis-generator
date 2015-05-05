@@ -19,6 +19,10 @@ var MoreTabs = [
     {
         tabName: 'converter',
         loadContent: require('../../../support/converter')
+    },
+    {
+        tabName: 'controller',
+        loadContent: require('../../../support/controller')
     }
 ];
 

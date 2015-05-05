@@ -1,11 +1,11 @@
 MyBatis Generator
 =================
 
-## install
+## Install
 ```bash 
 sudo npm install -g git+https://git@github.com/Youmoo/mybatis-generator.git
 ```
-## run
+## Run
 Add a config.json to your home  path (~) with the following content:
 ```json
 {
@@ -16,7 +16,7 @@ Add a config.json to your home  path (~) with the following content:
   "connectionLimit": 10
 }
 ```
-Then run from your termial:
+Then run from your terminal:
 ```bash
 mybatis ~/config.json
 ```
@@ -38,3 +38,4 @@ Lastly , open [me](http://localhost:8888/)
 2. nodejs+restify
 3. mysql
 4. browserify
+5. semantic-ui
