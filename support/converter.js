@@ -9,7 +9,7 @@ module.exports = function entity(tableDesc) {
 
     var results = tableDesc.rows.map(function (row) {
         var field = capitalize(row.javaField);
-        return ['\tresult.set', field, '(bean.get', field, ');'].join('')
+        return ['\tresult.set', field, '(bean.get', field, '());'].join('')
     }).join('\n');
 
     return new Promise(function (res) {
