@@ -1,14 +1,23 @@
 'use strict';
 
+var Tag = require('./tag/Tag');
+
 
 module.exports = function baseResultMap(tableDesc) {
+
     var results = tableDesc.rows.map(function (row) {
-        return ['\t<result column="', row.field, '" property="', row.javaField, '"/>'].join('');
+        return new Tag('result')
+            .addProp('column', row.field)
+            .addProp('property', row.javaField);
     });
-    var content = ['<resultMap id="baseResultMap" type="your.entity.Type">\n', results.join('\n'), "\n</resultMap>"].join('');
+
+    var tag = new Tag("resultMap")
+        .addProp("id", "baseResultMap")
+        .addProp("type", "your.entity.Type")
+        .addChildren(results);
 
     return new Promise(function (res) {
-        res(content);
+        res(''+tag);
     })
 
 };

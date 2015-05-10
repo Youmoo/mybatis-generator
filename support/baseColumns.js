@@ -1,14 +1,19 @@
 'use strict';
+var Tag = require('./tag/Tag');
 
 module.exports = function BaseColumns(tableDesc) {
+
     var array = tableDesc.rows.map(function (row) {
-        return '\t' + row.field
+        return row.field
     });
 
-    var content = ['<sql id="baseColumns">\n', array.join(',\n'), '\n</sql>'].join('');
+    var tag = new Tag('sql')
+        .addProp('id', 'baseColumn')
+        .addChild(array.join(',\n\t'));
+
 
     return new Promise(function (res) {
-        res(content);
+        res('' + tag);
     })
 
 };

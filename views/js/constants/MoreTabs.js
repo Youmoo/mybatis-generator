@@ -17,6 +17,10 @@ var MoreTabs = [
         loadContent: require('../../../support/baseAliases')
     },
     {
+        tabName: 'where',
+        loadContent: require('../../../support/where')
+    },
+    {
         tabName: 'converter',
         loadContent: require('../../../support/converter')
     },

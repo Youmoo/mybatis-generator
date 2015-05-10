@@ -1,25 +1,32 @@
 'use strict';
-
+var Tag = require('./tag/Tag');
 
 module.exports = function insert(tableDesc) {
+
     var results = tableDesc.rows.reduce(function (p, row) {
-        p.fields.push(row.field);
-        p.javaFields.push(['#{', row.javaField, '}'].join(''));
+        p.fields.push('\t\t' + row.field);
+        p.javaFields.push(['\t\t#{', row.javaField, '}'].join(''));
         return p;
     }, {fields: [], javaFields: []});
 
+    var tag = new Tag('insert')
+        .addProp('parameterType', 'your.entity.Type');
+
+
     var content = [
-        '<insert id="insert" parameterType="your.entity.Type">\ninsert into ',
+        'insert into ',
         tableDesc.table,
-        '\n(',
+        '(\n',
         results.fields.join(',\n'),
-        ') \nvalues\n(',
+        '\n\t) \n\tvalues(\n',
         results.javaFields.join(',\n'),
-        ')',
-        '\n</insert>'].join('');
+        '\n\t)'
+    ].join('');
+
+    tag.addChild(content);
 
     return new Promise(function (res) {
-        res(content);
+        res('' + tag);
     })
 
 };

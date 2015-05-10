@@ -1,17 +1,21 @@
 'use strict';
+var Tag = require('./tag/Tag');
 
 /**
  * 使用别名
  */
 module.exports = function BaseColumns(tableDesc) {
     var array = tableDesc.rows.map(function (row) {
-        return '\t' + row.field + ' as ' + row.javaField;
+        return row.field + ' as ' + row.javaField;
     });
 
-    var content = ['<sql id="baseAliasedColumns">\n', array.join(',\n'), '\n</sql>'].join('');
+    var tag = new Tag('sql')
+        .addProp('id', 'baseAliasedColumns')
+        .addChild(array.join(',\n\t'));
+
 
     return new Promise(function (res) {
-        res(content);
+        res('' + tag);
     });
 
 };
