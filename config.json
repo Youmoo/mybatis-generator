@@ -3,5 +3,6 @@
   "database": "dbtest1",
   "user": "test",
   "password": "test",
-  "connectionLimit": 10
+  "connectionLimit": 10,
+  "httpPort":8888
 }

@@ -4,16 +4,12 @@ var Tag = require('./tag/Tag');
 module.exports = function insertSelective(tableDesc) {
 
     var results = tableDesc.rows.reduce(function (p, row) {
-        p.fields.push([
-            '\n\t\t<if test="', row.javaField, ' != null">',
-            row.field,
-            ',</if>'
-        ].join(''));
-        p.javaFields.push([
-            '\n\t\t<if test="', row.javaField, ' != null">',
-            '#{', row.field, '}',
-            ',</if>'
-        ].join(''));
+        p.fields.push(
+            new Tag('if').addProp('test', row.javaField + '!=null').addChild(row.field)
+        );
+        p.javaFields.push(
+            new Tag('if').addProp('test', row.javaField + '!=null').addChild(row.javaField)
+        );
         return p;
     }, {fields: [], javaFields: []});
 
@@ -21,17 +17,21 @@ module.exports = function insertSelective(tableDesc) {
         .addProp('id', 'insertSelective')
         .addProp('parameterType', 'your.entity.Type');
 
-    var content = [
-        'insert into ',
-        tableDesc.table,
-        '\n\t<trim prefix="(" suffix=")" suffixOverrides=",">',
-        results.fields.join(''),
-        '\n\t</trim>',
-        '\n\t<trim prefix="values (" suffix=")" suffixOverrides=",">',
-        results.javaFields.join(''),
-        '\n\t</trim>'].join('');
+    var trimFields = new Tag('trim', 1).addProp('prefix', '(').addProp('suffix', ')')
+        .addProp('suffixOverrides', ',')
+        .addChildren(results.fields);
 
-    tag.addChild(content);
+    var trimValues = new Tag('trim', 1).addProp('prefix', '(').addProp('suffix', ')')
+        .addProp('suffixOverrides', ',')
+        .addChildren(results.javaFields);
+
+    var content = [
+        'insert into ' + tableDesc.table,
+        trimFields,
+        trimValues
+    ];
+
+    tag.addChildren(content);
 
     return new Promise(function (res) {
         res('' + tag);

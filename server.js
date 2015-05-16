@@ -8,15 +8,17 @@ var server = restify.createServer({
     name: 'myapp',
     version: '1.0.0'
 });
+
 var config = process.argv[2];
 if (!config) {
     throw new Error('config参数不可缺少');
 }
-if (!(config[0] === '/' || config[0] === '.')) {
-    config = './' + config;
-}
 
-server.pool = require('./db')(require(config));
+if (config[0] !== '/') {
+    config = process.cwd() + '/' + config;
+}
+var dbConfig = require(config);
+require('./db')(dbConfig,server);
 
 //server.provider = 'file';//从哪里取数据
 server.provider = 'mysql';//从哪里取数据
@@ -44,11 +46,10 @@ Object.keys(controllers).forEach(function (key) {
 });
 
 server.get('/', function (req, res) {
-    console.log(__dirname)
     res.header('Location', '/index.html');
     res.send(302);
 });
 
-server.listen(8888, function () {
+server.listen(dbConfig.httpPort, function () {
     console.log('%s listening at %s', server.name, server.url);
 });
