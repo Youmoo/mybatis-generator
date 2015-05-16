@@ -13,7 +13,8 @@ Add a config.json to your home  path (~) with the following content:
   "database": "dbtest1",
   "user": "test",
   "password": "test",
-  "connectionLimit": 10
+  "connectionLimit": 10,
+  "httpPort": 8888
 }
 ```
 Then run from your terminal:
