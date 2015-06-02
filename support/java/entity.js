@@ -1,7 +1,7 @@
 'use strict';
 
-var camelCase = require('./camelCase');
-var capitalize = require('./capitalize');
+var camelCase = require('./../func/camelCase');
+var capitalize = require('./../func/capitalize');
 
 module.exports = function entity(tableDesc) {
     var entityName = capitalize(camelCase(tableDesc.table));

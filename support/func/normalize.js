@@ -1,7 +1,7 @@
 'use strict';
 
-var typeMapping = require("./TypeMapping");
-var fieldMapping = require("./FieldMapping");
+var typeMapping = require("./../mapping/TypeMapping");
+var fieldMapping = require("./../mapping/FieldMapping");
 
 module.exports = function normalize(tableDesc) {
     return tableDesc.map(function (row) {

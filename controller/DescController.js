@@ -1,6 +1,6 @@
 'use strict';
 
-var normalize = require('../support/normalize');
+var normalize = require('../support/func/normalize');
 
 /**
  * desc table

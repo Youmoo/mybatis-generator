@@ -1,7 +1,7 @@
 'use strict';
 
-var camelCase = require('./camelCase');
-var capitalize = require('./capitalize');
+var camelCase = require('./../func/camelCase');
+var capitalize = require('./../func/capitalize');
 /**
  * 构造实体类
  */

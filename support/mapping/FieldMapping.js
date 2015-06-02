@@ -1,6 +1,6 @@
 'use strict';
 
-var camelCase = require('./camelCase');
+var camelCase = require('./../func/camelCase');
 /**
  * 将sqlField转换为javaField
  */

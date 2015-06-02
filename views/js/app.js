@@ -3,7 +3,7 @@
 var React = require('react');
 var Grid = require('./component/Grid');
 var Menu = require('./component/Menu');
-var selectText = require('../../support/selectText');
+var selectText = require('../../support/xml/selectText');
 
 /**
  * 主文件

@@ -1,5 +1,5 @@
 'use strict';
-var Tag = require('./tag/Tag');
+var Tag = require('./../tag/Tag');
 
 module.exports = function insert(tableDesc) {
 
