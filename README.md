@@ -25,7 +25,7 @@ mybatis config.json
 Last, click [me](http://localhost:8888/).
 
 ### java
-First , create a file, `config.json`,with the following content:
+First , create a file in your home path, `config.json`,with the following content:
 ```json
 {
   "host": "localhost",
@@ -40,7 +40,9 @@ First , create a file, `config.json`,with the following content:
 Then run from your terminal:
 ```bash
 git clone https://github.com/Youmoo/mybatis-generator
-cd mybatis-generator/java
+cd mybatis-generator
+cp ~/config.json ./
+cd java
 mvn spring-boot:run -Dserver.port=8888
 ```
 Lastly , open [me](http://localhost:8888/)
