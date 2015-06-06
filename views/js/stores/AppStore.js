@@ -6,9 +6,11 @@ var assign = require('object-assign');
 var TabsConfig = require('../constants/TabsConfig');
 var MoreTabs = require('../constants/MoreTabs');
 var AllTabs = TabsConfig.concat(MoreTabs);
+var normalize = require('../../../support/func/normalize');
 
 var CHANGE_EVENT = 'change';
-var url = 'http://localhost:8888';
+//var url = 'http://localhost:8888';
+var url = '';
 
 var _data = {
     table: '',
@@ -91,6 +93,7 @@ AppDispatcher.register(function (action) {
             _data.table = action.table;
             _data.tabIndex = 0;
             AppStore.descTable().done(function (data) {
+                data.rows = normalize(data);
                 _data.desc = data;
                 _data.content = data;
                 AppStore.emitChange();

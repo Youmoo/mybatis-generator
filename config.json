@@ -4,5 +4,6 @@
   "user": "test",
   "password": "test",
   "connectionLimit": 10,
-  "httpPort":8888
+  "dbPort": 3306,
+  "jdbcDriver": "com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 }

@@ -1,7 +1,5 @@
 'use strict';
 
-var normalize = require('../support/func/normalize');
-
 /**
  * desc table
  */
@@ -10,9 +8,21 @@ module.exports = function descController(req, res, next) {
 
     provider(req.params.table, this.pool).then(function (result) {
         if (result.ok) {
-            result.rows = normalize(result.rows);
+            result.rows = result.rows.map(extract);
         }
         result.table = req.params.table;
         res.send(result);
     });
 };
+
+/**
+ * 取出必要的字段
+ * @param row
+ * @returns {{field: *, type: *}}
+ */
+function extract(row) {
+    return {
+        field: row.Field,
+        type: row.type
+    }
+}

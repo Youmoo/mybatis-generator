@@ -1,12 +1,13 @@
 MyBatis Generator
 =================
 
-## Install
+## Install & Run
+### node
+First,run from your terminal:
 ```bash 
 sudo npm install -g git+https://git@github.com/Youmoo/mybatis-generator.git
 ```
-## Run
-Add a config.json to your home  path (~) with the following content:
+Second,create a file, `config.json`,with the following content:
 ```json
 {
   "host": "localhost",
@@ -17,9 +18,30 @@ Add a config.json to your home  path (~) with the following content:
   "httpPort": 8888
 }
 ```
+Third,run from your terminal:
+```bash
+mybatis config.json
+```
+Last, click [me](http://localhost:8888/).
+
+### java
+First , create a file, `config.json`,with the following content:
+```json
+{
+  "host": "localhost",
+  "database": "dbtest1",
+  "user": "test",
+  "password": "test",
+  "connectionLimit": 10,
+  "dbPort": 3306,
+  "jdbcDriver": "com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+}
+```
 Then run from your terminal:
 ```bash
-mybatis ~/config.json
+git clone https://github.com/Youmoo/mybatis-generator
+cd mybatis-generator/java
+mvn spring-boot:run -Dserver.port=8888
 ```
 Lastly , open [me](http://localhost:8888/)
 
@@ -33,6 +55,7 @@ Lastly , open [me](http://localhost:8888/)
 6. updateSelective
 7. entity
 8. dao
+9. many more...
 
 ## Libs that are used:
 1. react+flux

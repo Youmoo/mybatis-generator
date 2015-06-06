@@ -5,7 +5,7 @@ var controllers = require("./controller/controllers");
 var pool = require('./db');
 
 var server = restify.createServer({
-    name: 'myapp',
+    name: 'MyBatis Generator',
     version: '1.0.0'
 });
 
@@ -18,13 +18,13 @@ if (config[0] !== '/') {
     config = process.cwd() + '/' + config;
 }
 var dbConfig = require(config);
-require('./db')(dbConfig,server);
+require('./db')(dbConfig, server);
 
 //server.provider = 'file';//从哪里取数据
 server.provider = 'mysql';//从哪里取数据
 
 server.get(/\/.*\.(html|css|js|woff|woff2|ttf)/, restify.serveStatic({
-    directory: __dirname + '/views',
+    directory: __dirname + '/../views',
     default: 'index.html'
 }));
 

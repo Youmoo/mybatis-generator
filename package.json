@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "MyBatis code generator",
   "repository": "https://github.com/Youmoo",
-  "main": "js/app.js",
+  "main": "node/server.js",
   "dependencies": {
     "flux": "^2.0.1",
     "keymirror": "~0.1.0",
@@ -21,10 +21,11 @@
     "watchify": "^2.1.1"
   },
   "bin": {
-    "mybatis": "server.js"
+    "mybatis": "node/server.js"
   },
   "scripts": {
-    "start": "watchify -o views/js/bundle.js -v -d views/js/app.js"
+    "react": "watchify -o views/js/bundle.js -v -d views/js/app.js",
+    "start":"mybatis config"
   },
   "author": "Youmoo",
   "browserify": {
