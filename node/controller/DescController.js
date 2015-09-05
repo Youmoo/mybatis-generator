@@ -23,6 +23,6 @@ module.exports = function descController(req, res, next) {
 function extract(row) {
     return {
         field: row.Field,
-        type: row.type
+        type: row.Type
     }
 }
