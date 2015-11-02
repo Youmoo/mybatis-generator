@@ -1,9 +1,10 @@
 {
   "host": "localhost",
-  "database": "dbtest1",
+  "database": "test",
   "user": "test",
   "password": "test",
   "connectionLimit": 10,
   "dbPort": 3306,
+  "httpPort":8887,
   "jdbcDriver": "com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 }

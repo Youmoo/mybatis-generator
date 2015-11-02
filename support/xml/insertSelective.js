@@ -5,10 +5,10 @@ module.exports = function insertSelective(tableDesc) {
 
     var results = tableDesc.rows.reduce(function (p, row) {
         p.fields.push(
-            new Tag('if').addProp('test', row.javaField + '!=null').addChild(row.field)
+            new Tag('if').addProp('test', row.javaField + '!=null').addChild(row.field + ',')
         );
         p.javaFields.push(
-            new Tag('if').addProp('test', row.javaField + '!=null').addChild(row.javaField)
+            new Tag('if').addProp('test', row.javaField + '!=null').addChild(row.javaField + ',')
         );
         return p;
     }, {fields: [], javaFields: []});
