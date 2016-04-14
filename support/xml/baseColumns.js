@@ -8,7 +8,7 @@ module.exports = function BaseColumns(tableDesc) {
     });
 
     var tag = new Tag('sql')
-        .addProp('id', 'baseColumn')
+        .addProp('id', 'baseColumns')
         .addChild(array.join(',\n\t'));
 
 

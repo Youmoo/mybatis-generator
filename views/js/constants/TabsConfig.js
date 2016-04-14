@@ -7,11 +7,11 @@ var TabsConfig = [
         tabName: 'desc'
     },
     {
-        tabName: 'baseResultMap',
+        tabName: 'resultMap',
         loadContent: require('../../../support/xml/baseResultMap')
     },
     {
-        tabName: 'baseColumns',
+        tabName: 'columns',
         loadContent: require('../../../support/xml/baseColumns')
     },
     {

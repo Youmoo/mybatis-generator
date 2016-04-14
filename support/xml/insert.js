@@ -10,6 +10,7 @@ module.exports = function insert(tableDesc) {
     }, {fields: [], javaFields: []});
 
     var tag = new Tag('insert')
+        .addProp('id', 'insert')
         .addProp('parameterType', 'your.entity.Type');
 
 

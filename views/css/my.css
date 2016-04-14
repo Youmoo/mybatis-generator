@@ -5,3 +5,9 @@
 .hidden {
     display: none;
 }
+
+.grid > div:first-child {
+    /*占据整屏的宽度*/
+    max-height: calc(100vh - 35px);
+    overflow-y: auto;
+}
