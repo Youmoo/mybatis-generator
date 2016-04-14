@@ -1,5 +1,6 @@
 MyBatis Generator
 =================
+![](mybatis.gif)
 
 ## Install & Run
 ### node
